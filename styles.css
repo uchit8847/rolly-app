@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: grey;
+}
+
+#container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dog {
+    position: absolute;
+    bottom: 20px;
+    width: 200px; /* Adjust size as needed */
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

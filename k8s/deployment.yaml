@@ -5,7 +5,7 @@ metadata:
   labels:
     app: rolly-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: rolly-app
@@ -16,13 +16,6 @@ spec:
     spec:
       containers:
       - name: rolly-app
-        image: your-docker-image:latest  # Replace with your actual Docker image name
+        image: uchit8847/rolly-app  # Replace with your actual Docker image name
         ports:
         - containerPort: 80
-        volumeMounts:
-        - name: static-files
-          mountPath: /usr/share/nginx/html  # Adjust based on your web server
-      volumes:
-      - name: static-files
-        hostPath:
-          path: /path/to/your/static/files  # Adjust this path to where your files are located

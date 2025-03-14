@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rolly-app
+  labels:
+    app: rolly-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rolly-app
+  template:
+    metadata:
+      labels:
+        app: rolly-app
+    spec:
+      containers:
+      - name: rolly-app
+        image: your-docker-image:latest  # Replace with your actual Docker image name
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: static-files
+          mountPath: /usr/share/nginx/html  # Adjust based on your web server
+      volumes:
+      - name: static-files
+        hostPath:
+          path: /path/to/your/static/files  # Adjust this path to where your files are located

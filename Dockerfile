@@ -1,12 +1,14 @@
-# Use the official NGINX image
+# Use official Nginx as base image
 FROM nginx:latest
 
-# Copy all website files into NGINX’s default directory
-COPY index.html /usr/share/nginx/html/
-COPY styles.css /usr/share/nginx/html/
-COPY script.js /usr/share/nginx/html/
-COPY rolly.jpg /usr/share/nginx/html/
-COPY bark.mp3 /usr/share/nginx/html/
+# Remove default Nginx HTML files
+RUN rm -rf /usr/share/nginx/html/*
 
-# Expose port 80
+# Copy your app files to Nginx directory
+COPY ./index.html /usr/share/nginx/html
+
+# Expose port 80 (for internal traffic)
 EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]

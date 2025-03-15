@@ -15,8 +15,8 @@ body {
 
 #dog {
     position: absolute;
-    bottom: 20px;
-    width: 200px; /* Adjust size as needed */
+    bottom: 50px;
+    width: 500px; /* Adjust size as needed */
 }
 
 canvas {
